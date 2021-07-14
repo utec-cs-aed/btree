@@ -1,44 +1,34 @@
 
 #include <iostream>
 #include "btree.h"
+#include "tester.h"
 using namespace std;
 
-int main(int argc, char const *argv[]){
+int main(){
     BTree<int> *btree = new BTree<int>(4);
-    int n, val;
-    cin >> n;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> val;
-        btree->insert(val);
-    }
+    btree->insert(45);
+    btree->insert(75);
+    btree->insert(100);
+    btree->insert(36);
+    btree->insert(120);
+    btree->insert(70);
+    btree->insert(11);
+    btree->insert(111);
+    btree->insert(47);
+    btree->insert(114);
+    ASSERT(btree->toString(" ") == "11 36 45 47 70 75 100 111 114 120 ", 
+        "The function insert is not working");
+    ASSERT(btree->height() == 3, 
+        "The function height is not working");
 
-    int option = atoi(argv[1]);
-    switch (option)
-    {
-        case 1:
-            btree->display();
-            break;
-        case 2:
-            cout << btree->height();
-            break;
-        case 3:
-            cout << btree->minValue();
-            break;
-        case 4:
-            cout << btree->maxValue();
-            break;
-        case 5:
-            cin>>val;
-            cout << btree->search(val);
-            break;    
-        case 6:
-            cin>>val;
-            btree->remove(val);
-            cin>>val;
-            btree->remove(val);
-            btree->display();
-            break;
-    }
+    btree->remove(100);
+    btree->remove(111);
+    btree->remove(45);
+
+    ASSERT(btree->toString(" ") == "11 36 47 70 75 114 120 ", 
+        "The function remove is not working");
+    ASSERT(btree->height() == 2, 
+        "The function height is not working");
+
     return 0;
 }

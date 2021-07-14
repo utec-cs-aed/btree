@@ -5,26 +5,27 @@ using namespace std;
 
 template <typename TK>
 struct Node {
-    TK* keys;     
+    //array de keys
+    TK* keys;
+    //array de punteros a hijos
     Node** children;
-    int count;//total de keys
+    //cantidad de keys
+    int count;
+    //indicador de nodo hoja
     bool leaf;
 
-    Node():keys(nullptr), children(nullptr), count(0) {}
+    Node(): keys(nullptr), children(nullptr), count(0) {}
     Node(int M){
         keys = new TK[M-1];
-        children = new Node<TK>*[M];
+        children = new Node<Tk>*[M];
         count = 0;
         leaf = true;
-    }   
-
-    void split(int child){
-        //TODO: dividir el hijo de la posicion "child"
-    }
+    }    
 
     void killSelf(){
-        // TODO: borrar el nodo recursivamente
+        //TODO
     }
+
 };
 
 #endif
