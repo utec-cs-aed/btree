@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(){
-    BTree<int> *btree = new BTree<int>(4);
+    BTree<int> *btree = new BTree<int>(3);
     btree->insert(45);
     btree->insert(75);
     btree->insert(100);
