@@ -3,16 +3,6 @@
 int TotalAsserts = 0;
 int TrueAsserts = 0;
 
-bool findKey(Node<int>* node, int key) {
-  if (node == nullptr)
-    return false;
-  for (int i = 0; i < node->count; i++) {
-    if (node->keys[i] == key)
-      return true;
-  }
-  return false;
-}
-
 #ifndef NDEBUG
 #define ASSERT(condition, message)                                       \
   do {                                                                   \
