@@ -14,7 +14,7 @@ class BTree {
  public:
   BTree(int _M) : root(nullptr), M(_M) {}
 
-  Node<TK>* search(TK key);
+  bool search(TK key);
   void insert(TK key);
   void remove(TK key);
   int height();
