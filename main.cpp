@@ -31,68 +31,27 @@ int main() {
   ASSERT(btree->height() == 2, "The function height is not working");
 
   btree->remove(114);
-
-  ASSERT(btree->toString(" ") == "11 36 47 70 75 120",
-         "The function remove is not working");
-  ASSERT(btree->height() == 2, "The function height is not working");
-  ASSERT(btree->toString(" - ") == "11 - 36 - 47 - 71 - 75 - 120 - 125",
+  btree->insert(40);
+  
+  ASSERT(btree->toString(" - ") == "11 - 36 - 40 - 47 - 70 - 75 - 120",
          "The function toString is not working");
-
-  btree->insert(71);
-
-  ASSERT(btree->toString(" ") == "11 36 47 70 71 75 120",
-         "The function insert is not working");
-  ASSERT(btree->height() == 3, "The function height is not working");
-
-  btree->remove(70);
-
-  ASSERT(btree->toString(" ") == "11 36 47 71 75 120",
-         "The function remove is not working");
-  ASSERT(btree->height() == 2, "The function height is not working");
-  ASSERT(btree->maxKey() == 120, "The function maxKey is not working");
-
+  ASSERT(btree->height() == 3, "The function height is not working");  
+  
   btree->insert(125);
-
-  ASSERT(btree->toString(" ") == "11 36 47 71 75 120 125",
-         "The function insert is not working");
-  ASSERT(btree->height() == 2, "The function height is not working");
-  ASSERT(findKey(btree->search(125), 125),
-         "The function search is not working");
-  ASSERT(btree->toString(";") == "11;36;47;71;75;120;125",
-         "The function toString is not working");
-
-  btree->remove(75);
-
-  ASSERT(btree->toString(" ") == "11 36 47 71 120 125",
-         "The function remove is not working");
-  ASSERT(btree->height() == 2, "The function height is not working");
-  ASSERT(!findKey(btree->search(75), 75), "The function search is not working");
-  ASSERT(btree->toString(",") == "11,36,47,71,120,125",
-         "The function toString is not working");
-
-  btree->remove(36);
-
-  ASSERT(btree->toString(" ") == "11 47 71 120 125",
-         "The function remove is not working");
-  ASSERT(btree->height() == 2, "The function height is not working");
-  ASSERT(btree->minKey() == 11, "The function minKey is not working");
+  btree->insert(115);
+  
   ASSERT(btree->maxKey() == 125, "The function maxKey is not working");
-  ASSERT(!findKey(btree->search(200), 200),
-         "The function search is not working");
-
-  btree->remove(120);
-
-  ASSERT(btree->toString(" ") == "11 47 71 125",
-         "The function remove is not working");
-  ASSERT(btree->height() == 2, "The function height is not working");
-  ASSERT(!findKey(btree->search(40), 40), "The function search is not working");
-
-  btree->remove(47);
-  btree->remove(71);
-
-  ASSERT(btree->toString(" ") == "11 125",
-         "The function remove is not working");
-  ASSERT(btree->height() == 1, "The function height is not working");
+  ASSERT(btree->search(47) == true),  "The function search is not working");  
+  
+  btree->remove(11);
+    
+  ASSERT(btree->search(11) == false),  "The function search is not working");
+  ASSERT(btree->minKey() == 36, "The function minKey is not working");
+  ASSERT(btree->size() == 7, "The function size is not working");
+  
+  btree->clear();  
+  ASSERT(btree->size() == 0, "The function size is not working");
+  ASSERT(btree->height() == 0, "The function height is not working");
 
   return 0;
 }
