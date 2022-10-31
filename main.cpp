@@ -15,7 +15,7 @@ int main() {
   ASSERT(btree->toString(" ") == "11 36 45 47 70 75 100 111 114 120",
          "The function insert is not working");
   ASSERT(btree->height() == 2, "The function height is not working");
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 10; i=i+2) {
     ASSERT(btree->search(numbers[i]) == true,
            "The function search is not working");
   }
