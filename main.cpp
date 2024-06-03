@@ -53,5 +53,6 @@ int main() {
   ASSERT(btree->size() == 0, "The function size is not working");
   ASSERT(btree->height() == 0, "The function height is not working");
 
+  delete btree;
   return 0;
 }
