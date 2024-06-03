@@ -20,6 +20,7 @@ class BTree {
   void remove(TK key);//elimina un elemento
   int height();//altura del arbol. Considerar altura 0 para arbol vacio
   string toString(const string& sep);  // recorrido inorder
+  vector<TK> rangeSearch(TK begin, TK end);
 
   TK minKey();  // minimo valor de la llave en el arbol
   TK maxKey();  // maximo valor de la llave en el arbol
