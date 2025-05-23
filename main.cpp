@@ -52,6 +52,18 @@ int main() {
   ASSERT(btree->size() == 0, "The function size is not working");
   ASSERT(btree->height() == 0, "The function height is not working");
 
+  // TODO: agregar pruebas 
+  std::vector<int> elements = {1,2,3,4,5,6,7,8,9,10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+  BTree<int>* btree2 = BTree<int>::build_from_ordered_vector(elements, 4);
+  ASSERT(btree2->toString(",") == "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20", "The function build_from_ordered_vector is not working");      
+  if(btree2->check_properties()){
+      cout<<"El árbol 2 cumple con las propiedades de un árbol B."<<endl;      
+  }else{
+      cout<<"El árbol 2 no cumple con las propiedades de un árbol B."<<endl;
+  }    
+
   delete btree;
+  delete btree2;
+  
   return 0;
 }
