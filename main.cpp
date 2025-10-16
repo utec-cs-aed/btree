@@ -11,6 +11,8 @@ int main() {
     btree->insert(numbers[i]);
   }
 
+  if(! btree->check_properties()) return 0;
+
   ASSERT(btree->toString(" ") == "11 36 45 47 70 75 100 111 114 120",
          "The function insert is not working");
   ASSERT(btree->height() == 2, "The function height is not working");
@@ -24,6 +26,8 @@ int main() {
   btree->remove(100);
   btree->remove(111);
   btree->remove(45);
+
+  if(! btree->check_properties()) return 0;
 
   ASSERT(btree->toString(" ") == "11 36 47 70 75 114 120",
          "The function remove is not working");
